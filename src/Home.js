@@ -17,7 +17,7 @@ function Home() {
 
   const SignUp = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/signUp', { username, password });
+      const response = await axios.post('https://backend-a955.onrender.com/signUp', { username, password });
       console.log(response.data);
       alert('signUp sucess')
     } 
@@ -28,7 +28,7 @@ function Home() {
 
   const SignIn = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/signIn', { username, password } ,{ withCredentials: true });
+      const response = await axios.post('https://backend-a955.onrender.com/signIn', { username, password } ,{ withCredentials: true });
       window.alert(response.data)
     } 
     catch (error) {
@@ -38,7 +38,7 @@ function Home() {
 
   const Add = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/add', {
+      const response = await axios.post('https://backend-a955.onrender.com/add', {
         name: itemName,
         price: itemPrice,
         quantity: itemQuantity,
@@ -55,7 +55,7 @@ function Home() {
 
   const Get = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/get', {params: { username }});
+      const response = await axios.get('https://backend-a955.onrender.com/get', {params: { username }});
       setBasket(response.data.basket);
     } 
     catch (error) {
@@ -64,7 +64,7 @@ function Home() {
   };
   const Delete = async (itemId) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/delete/${itemId}`, 
+      const response = await axios.delete(`https://backend-a955.onrender.com/delete/${itemId}`, 
       {
         withCredentials: true,
       });
@@ -81,7 +81,7 @@ function Home() {
 
   const Update = async (itemId) => {
     try {
-      const response = await axios.put(`http://localhost:8000/update/${itemId}`, { name: updateName, price: updatePrice, quantity: updateQuantity }, { withCredentials: true });
+      const response = await axios.put(`https://backend-a955.onrender.com/update/${itemId}`, { name: updateName, price: updatePrice, quantity: updateQuantity }, { withCredentials: true });
   
       if (response.status === 200) {
         setBasket(prevBasket =>
