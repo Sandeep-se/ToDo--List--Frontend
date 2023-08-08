@@ -17,7 +17,7 @@ function Home() {
 
   const SignUp = async () => {
     try {
-      const response = await axios.post('https://backend-a955.onrender.com/signUp', { username, password });
+      const response = await axios.post('https://todo-list-backend-8bga.onrender.com/signUp', { username, password });
       console.log(response.data);
       alert('signUp sucess')
     } 
@@ -28,8 +28,9 @@ function Home() {
 
   const SignIn = async () => {
     try {
-      const response = await axios.post('https://backend-a955.onrender.com/signIn', { username, password } ,{ withCredentials: true });
-      window.alert(response.data)
+      const response = await axios.post('https://todo-list-backend-8bga.onrender.com/signIn', { username, password } ,{ withCredentials: true });
+      window.alert(JSON.stringify(response))
+      // window.alert(response.data)
     } 
     catch (error) {
       console.error(error);
@@ -38,7 +39,7 @@ function Home() {
 
   const Add = async () => {
     try {
-      const response = await axios.post('https://backend-a955.onrender.com/add', {
+      const response = await axios.post('https://todo-list-backend-8bga.onrender.com/add', {
         name: itemName,
         price: itemPrice,
         quantity: itemQuantity,
@@ -55,7 +56,7 @@ function Home() {
 
   const Get = async () => {
     try {
-      const response = await axios.get('https://backend-a955.onrender.com/get', {params: { username }});
+      const response = await axios.get('https://todo-list-backend-8bga.onrender.com/get', {params: { username }});
       setBasket(response.data.basket);
     } 
     catch (error) {
@@ -64,7 +65,7 @@ function Home() {
   };
   const Delete = async (itemId) => {
     try {
-      const response = await axios.delete(`https://backend-a955.onrender.com/delete/${itemId}`, 
+      const response = await axios.delete(`https://todo-list-backend-8bga.onrender.com/delete/${itemId}`, 
       {
         withCredentials: true,
       });
@@ -81,7 +82,7 @@ function Home() {
 
   const Update = async (itemId) => {
     try {
-      const response = await axios.put(`https://backend-a955.onrender.com/update/${itemId}`, { name: updateName, price: updatePrice, quantity: updateQuantity }, { withCredentials: true });
+      const response = await axios.put(`https://todo-list-backend-8bga.onrender.com/update/${itemId}`, { name: updateName, price: updatePrice, quantity: updateQuantity }, { withCredentials: true });
   
       if (response.status === 200) {
         setBasket(prevBasket =>
