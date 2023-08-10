@@ -29,8 +29,7 @@ function Home() {
   const SignIn = async () => {
     try {
       const response = await axios.post('https://todo-list-backend-8bga.onrender.com/signIn', { username, password } ,{ withCredentials: true });
-      window.alert(JSON.stringify(response))
-      // window.alert(response.data)
+      window.alert(response.data)
     } 
     catch (error) {
       console.error(error);
